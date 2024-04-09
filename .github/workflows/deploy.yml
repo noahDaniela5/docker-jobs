@@ -14,13 +14,10 @@ jobs:
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb+srv
       MONGODB_CLUSTER_ADDRESS: cluster0.kvfhave.mongodb.net
-      MONGODB_USERNAME: noahDaniela
-      MONGODB_PASSWORD: nU1cyFFLoIrHDcB0
+      MONGODB_USERNAME: ${{secrets.MONGODB_USERNAME}}
+      MONGODB_PASSWORD: ${{secrets.MONGODB_PASSWORD}}
       PORT: 27017
     steps:
-      - name: Debug MONGODB_USERNAME
-        run: |
-         echo "MONGODB_USERNAME: $MONGODB_USERNAME"
       - name: Get Code
         uses: actions/checkout@v3
       - name: Cache dependencies
